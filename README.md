@@ -1,0 +1,2 @@
+# mainnet
+Mainnet genesis
