@@ -25,7 +25,7 @@ sha256sum genesis.json
 
 - Network Chain ID: `evmos_9001-1`
 - EIP155 Chain ID: `9001`
-- `evmosd` version: [`v0.1.1.x`](https://github.com/tharsis/evmos/releases)
+- `evmosd` version: [`v1.1.x`](https://github.com/tharsis/evmos/releases)
 - EVM explorer: [evm.evmos.org](https://evm.evmos.org)
 - Cosmos explorer: [explorer.evmos.org](https://explorer.evmos.org)
 
