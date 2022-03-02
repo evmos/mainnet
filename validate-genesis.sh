@@ -14,6 +14,7 @@ set -e
 echo "Cloning the Evmos repo and building $BINARY_VERSION"
 
 rm -rf evmos
+apt install git-lfs -y
 git clone "$GH_URL" > /dev/null 2>&1
 cd evmos
 git checkout tags/"$BINARY_VERSION" > /dev/null 2>&1
