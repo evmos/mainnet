@@ -6,10 +6,6 @@ To see if you were included in the final genesis, search the `genesis.json` file
 
 If you were included, congrats! there were a lot of submissions to process and we're glad to have you.
 
-If you weren't, thank you for taking the time to submit - we suggest looking at the [Mars Meteor Missions](https://evmos.blog/evmos-incentivized-testnet-event-the-mars-meteor-missions-bbbb7ffa1b7c) for participating in the Olympus Mons incentivzed testnet as the rewards can end up much higher for the other missions!
-
-We encourage you to find ways to jail validators if you're really interested in becoming part of the 300 once the network launches, subject to our [Code of Conduct](https://www.notion.so/tharsis/Code-of-Conduct-for-Evmos-Incentivized-Testnet-802fc5298ef647ca954c5dc0d44d39c1).
-
 ## For selected validators
 **The Chain Genesis Time is 18:00 UTC on March 2, 2022.**
 
