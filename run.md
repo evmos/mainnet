@@ -11,7 +11,7 @@ If you weren't, thank you for taking the time to submit - we suggest looking at 
 We encourage you to find ways to jail validators if you're really interested in becoming part of the 300 once the network launches, subject to our [Code of Conduct](https://www.notion.so/tharsis/Code-of-Conduct-for-Evmos-Incentivized-Testnet-802fc5298ef647ca954c5dc0d44d39c1).
 
 ## For selected validators
-**The Chain Genesis Time is 19:00 UTC on Nov 25, 2021.**
+**The Chain Genesis Time is 18:00 UTC on March 2, 2022.**
 
 Please have your validator up and ready by this time, and be available for further instructions if necessary
 at that time.
