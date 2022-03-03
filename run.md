@@ -120,13 +120,13 @@ cp $GOPATH/bin/evmosd ~/.evmosd/cosmovisor/genesis/bin
 You can now download the "genesis" file for the chain.  It is pre-filled with the entire genesis state and gentxs.
 
 ```sh
-curl https://raw.githubusercontent.com/tharsis/mainnet/main/genesis.json > ~/.evmosd/config/genesis.json
+curl https://archive.evmos.dev/genesis/genesis.json > ~/.evmosd/config/genesis.json
 ```
 
 We recommend using `sha256sum` to check the hash of the genesis.
 ```sh
 cd ~/.evmosd/config
-echo "2b5164f4bab00263cb424c3d0aa5c47a707184c6ff288322acc4c7e0c5f6f36f  genesis.json" | sha256sum -c
+echo "0d25dd7abf7325e518519ca2289775f611c0beaf1a2caf3a6b080e66168c2d6e  genesis.json" | sha256sum -c
 ```
 
 ### Reset Chain Database
