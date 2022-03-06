@@ -1,8 +1,6 @@
 # Peers
 
-## Example Peer
 ```
-<node-id>@<url>:26656
-
 9ff4b21aaebd1235fb7bf4fbf31bf9b74f1af862@194.163.172.168:26656
+c10e55af85131a9c80e9900ed40bf32df5d15795@65.21.88.252:26656
 ```
