@@ -19,6 +19,7 @@
 ### March 4th, 2022
 
 *15:19* - IBC core team at Interchain GmbH notifies the Evmos core team of a potential security vulnerability
+
 *15:25* - The Evmos teams responds to the notification and requests additional information of the component(s) affected, attack scenario(s), etc.
 
 ### March 5th, 2022
