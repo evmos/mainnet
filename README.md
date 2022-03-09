@@ -2,17 +2,17 @@
 
 ## Instructions
 
-**Genesis Validators**
+### Genesis Validators
 
 Follow the instructions on the ["Running as a genesis validator"](https://github.com/tharsis/mainnet/blob/main/run.md) guide.
 
-**Full nodes and general particpants**
+### Full nodes and general participants
 
 Follow the instructions on the official documentation to [join the mainnet](https://evmos.dev/mainnet/join.html).
 
 ## Genesis File
 
-Download the minified genesis file [genesis.json](https://archive.evmos.org/genesis/genesis.json)
+Download the minified genesis file [`genesis.json`](https://archive.evmos.org/genesis/genesis.json)
 
 Verify the SHA256 checksum using:
 
@@ -23,9 +23,9 @@ sha256sum genesis.json
 
 ## Details
 
-- Network Chain ID: `evmos_9001-1`
+- Network Chain ID: `evmos_9001-2`
 - EIP155 Chain ID: `9001`
-- `evmosd` version: [`v1.1.x`](https://github.com/tharsis/evmos/releases)
+- `evmosd` version: [`v2.0.1`](https://github.com/tharsis/evmos/releases)
 - EVM explorer: [evm.evmos.org](https://evm.evmos.org)
 - Cosmos explorer: [explorer.evmos.org](https://explorer.evmos.org)
 
