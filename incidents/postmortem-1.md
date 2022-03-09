@@ -15,17 +15,23 @@
 
 
 *15:19* - IBC core team at Interchain GmbH notifies the Evmos core team of a potential security vulnerability
+
 *15:25* - The Evmos teams responds to the notification and requests additional information of the component(s) affected, attack scenario(s), etc.
 
 ### March 5th, 2022:
 
 *10:58-11:38* - IBC Team replies with the attack scenario and suggests to avoid LP pool creation on the Osmosis chain and perform an upgrade to fix the vulnerability.
+
 *11:55* - Discussion between teams about potential workarounds.
+
 *12:50* - Evmos co-founder analyzes the full scope of the vulnerability score, and a new [critical security advisory](https://github.com/tharsis/evmos/security/advisories/GHSA-5jgq-x857-p8xw) is drafted.
+
 *16:03* - A Telegram group is created to coordinate the Evmos Security Upgrade
+
 *17:26* - Validators begin [collecting availability](https://docs.google.com/spreadsheets/d/1cTcZaGpsXUEN-WUg3wOeSnZmZ24Zz72u0zgVt6QzHzw/edit?usp=sharing), to gauge feasibilty of a manual emergency upgrade at height 46,000.
 
 *20:17* - Upgrade plan restated, `v1.1.2` awaiting release due to testing 
+
 *21:27* - Insufficient network awareness achieved, determine best course of action is to delay for 20 hours at height 56,300.
 
 *21:42 (March 5th) - 10:36 (March 6th)* - Core team consults with other Tendermint and Cosmos SDK core teams and experts regarding upgrade logic without governance upgrade to skip 5 day timeline for the emergency upgrade. Determined that safest way is to make a Cosmos SDK fork to call [`ScheduleUpgradeNoHeightCheck`](https://github.com/tharsis/evmos/pull/354/commits/e8b7fc6943cedecf404186d7449a2ddaa2cc179f) at upgrade height on `BeginBlocker` for both `v1.1.2` and `v2.0.0` in order to follow [Cosmovisor](https://docs.cosmos.network/master/run-node/cosmovisor.html) gov proposal upgrade path without having to reconstruct it entirely in Evmos codebase. Testing performed, upgrade works.
@@ -34,17 +40,29 @@
 ### March 6th, 2022:
 
 *12:35* - Upgrade logic for v1.1.2 [is completed](https://github.com/tharsis/evmos/pull/354)
+
 *12:44* - Upgrade logic merged, release being formed
+
 *12:52* - [**`v1.1.2`**](https://github.com/tharsis/evmos/tree/v1.1.2) upgrade announced as needed immediately
+
 *14:02* - Upgrade logic for v2.0.0 [is completed](https://github.com/tharsis/evmos/pull/352/commits/08fce50bb725a23fbcb9d15cdb36684adc9b2e19) and is modified to support in-store migration logic within module instead of altering params outside of the module in the upgrade handler. After discussing with other Cosmos and Tendermint experts, it was made clear that migrations was a safer way to set new params and bump the consensus version.
+
 *14:54* - Code is peer reviewed for v2 upgrade logic
+
 *14:58* - Code is merged for v2 upgrade logic
+
 *15:00 - 17:37* - Rebase and review security advisory patch prior to merge with v2 release
+
 *17:37* - Security advisory patch [merged](https://github.com/tharsis/evmos/commit/28870258d4ee9f1b8aeef5eba891681f89348f71) into [`release/v2.0.x`](https://github.com/tharsis/evmos/tree/release/v2.0.x) branch
+
 *17:42* - [**`v2.0.0`**](https://github.com/tharsis/evmos/releases/tag/v2.0.0) released
+
 *17:46* - [**`v2.0.0`**](https://github.com/tharsis/evmos/releases/tag/v2.0.0) upgrade announced, upgrade delayed to 58700
+
 *21:01* - Evmos core team runs another test, realizes that upgrade failed on the test, devs immediately start investigating and prepare for `v2.0.1`
+
 *21:11* - People get a consensus failure for 58700, which is correct
+
 *21:12* - [**`v2.0.0`**](https://github.com/tharsis/evmos/releases/tag/v2.0.0) Upgrade error reports begin, same error the core team found in *21:01*:
 
 ```shell
@@ -53,12 +71,19 @@ INF migrating module claims from version 1 to version 2
 panic: UnmarshalJSON cannot decode empty byte
 ```
     
+
 *21:21* - Team announces to Discord that developers are working on a patch release
+
 *21:27* - Core team and Cosmos developers understand that `GetParams` was breaking the migration and a [hotfix PR](https://github.com/tharsis/evmos/pull/363/commits/463992d65b2e999aa69f1df782315c167178e6b8) is merged
+
 *21:33* - [**`v2.0.1`**](https://github.com/tharsis/evmos/releases/tag/v2.0.1) released, fixing the error
+
 *21:35* - [**`v2.0.1`**](https://github.com/tharsis/evmos/releases/tag/v2.0.1) Upgrade begins
+
 *21:40* - 67% consensus seems to have reached for 58700, but 58701 gets stuck in consensus rounds...
+
 *21:41* - Reports of peer blocking / lost begin, possibly due to version disrepancies and people rebooting their nodes
+
 *21:47* - Reports of `v2.0.0` being accidentally deployed on some validators
 
 
@@ -73,10 +98,15 @@ not getting replaced by new one
 
 
 *21:50* - Participants point out that rank #1 validator is missing pre-commit/pre-votes and the network not moving forward because not enough people correctly upgraded and are participating in the rounds now for 58701. Suggested that rank #1 and others such as #7 and #8 upgrade.
+
 *21:50* - Further report of lost peers
+
 *21:50 - 22:31* - Several validators restart their nodes due to peer issues while they try updating peer settings or try to get peers
+
 *22:03* - Contact is made to rank #1 validator and other nodes to get online for 58701 and to participate in consensus rounds
+
 *22:31* - Recommendations on peer settings appear, and peer gathering efforts begin by Evmos team in #validators-active
+
 *22:44* - Report of resyncing
 
 
