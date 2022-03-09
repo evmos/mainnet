@@ -125,6 +125,10 @@ not getting replaced by new one
 
 *23:46* - Advised in step by step post that people should update peers, increase peering counts for inbound and outbound and delete their existing `addrbook.json`, and restart the node (note restarting the node likely meant the need to resync, didn't know it at the time)
 
+*23:41* - Advised that people remove their seeds as their old `addrbook.json` files and the fact they may not be updated is likely to cause nodes to have broken peers
+
+*23:46* - Advised in step by step post that people should update peers, increase peering counts for inbound and outbound and delete their existing `addrbook.json`, and restart the node (note restarting the node likely meant the need to resync, didn't know it at the time)
+
 ### March 7th, 2022
 
 *00:12* - New [peers list](https://hackmd.io/VTulVrhDQRmjhKRSu-Gv_A) to ensure upgraded peers and make more robust, due to concerns that GitHub `tharsis/mainnet` repository has an `addrbook.json` dump.
