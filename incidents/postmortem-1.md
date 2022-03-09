@@ -12,6 +12,12 @@
 
 2022-03-09
 
+## Brief Overview
+
+- Evmos Core team rushed out upgrade due to critical security vulnerability. Missed testing and delaying opportunities.
+- Upgrade ended up messy, resulting in 5 double signs.
+- Evmos Core team and network operators opted to halt as recovering became too difficult.
+
 ## Timeline
 
 > *NOTE*: All times in UTC
