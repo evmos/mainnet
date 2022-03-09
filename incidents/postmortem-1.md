@@ -259,6 +259,7 @@ After this happened, we had still not attained 67% of network voting power, and 
 
 * [x] Create documentation for validators to deploy and run a Key Management Service (KMS) for Tendermint (`tmkms`) or multi-party-computation signing service for nodes (`horcrux`).
 * [ ] Clear instructions to **NEVER** `unsafe-reset-all` without saving a local copy of `priv_validator_state.json`, stating the importance of this file. A new command has been added to tendermint that does a [safe-reset](https://github.com/tendermint/tendermint/pull/8081).
+  * [ ] Make Validator Keys Migration Guide to a new machine, as this is not well documented either.
 * [ ] Manual Upgrade and Emergency Upgrade documents for Validators in case the automated upgrade fails to prevent FUD.
 * [ ] Ensure that seed/peer operators know to upgrade their full nodes during this process
   * [ ] Figure out how to have a peer list that is tested for working peers by CI or a Discord bot.
@@ -271,6 +272,7 @@ After this happened, we had still not attained 67% of network voting power, and 
 ### Engineering
 
 * [ ] Create How-to Guide for Cosmos SDK chain upgrades
+* [ ] Create an internal Security Policy
 * [ ] Create integration and E2E tests for upgrades, both for automated upgrades (Cosmovisor) and manual upgrades.
 * [x] Open an improvement [PR](https://github.com/tendermint/tendermint/pull/8081) on Tendermint Core to to ONLY reset the db instead of also wiping the `priv_validator_state.json` when running `unsafe-reset-all`.
 * [x] Post Mortem document of the incident and remediations
