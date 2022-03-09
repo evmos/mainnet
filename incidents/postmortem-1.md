@@ -5,6 +5,7 @@
 * Akash Khosla (evmos.org)
 * Federico Kunze Küllmer (evmos.org)
 * Joe Abbey (jabbey.io)
+* Marko Barcevic (binary.holdings)
 * Prajjwol Gautam (evmos.org)
 
 ## Timeline
