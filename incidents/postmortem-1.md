@@ -247,6 +247,7 @@ After this happened, we had still not attained 67% of network voting power, and 
 
 **Why did it take so many rounds to try and upgrade?**
 
+* Because the upgrade release was last minute, and the upgrade failed, recovery was not immediate.
 * Voting power wasn't there, we were 66% at some rounds, for 10 rounds, meaning for hours and hours.
 
 **Why did people need to rely on snapshots and resync from `v1.1.2` to reapply the upgrade to `v2.0.1`?**
