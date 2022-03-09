@@ -19,17 +19,23 @@
 ### March 4th, 2022
 
 *15:19* - IBC core team at Interchain GmbH notifies the Evmos core team of a potential security vulnerability
+
 *15:25* - The Evmos teams responds to the notification and requests additional information of the component(s) affected, attack scenario(s), etc.
 
 ### March 5th, 2022
 
 *10:58-11:38* - IBC Team replies with the attack scenario and suggests to avoid LP pool creation on the Osmosis chain and perform an upgrade to fix the vulnerability.
+
 *11:55* - Discussion between teams about potential workarounds.
+
 *12:50* - Evmos co-founder analyzes the full scope of the vulnerability score, and a new [critical security advisory](https://github.com/tharsis/evmos/security/advisories/GHSA-5jgq-x857-p8xw) is drafted.
+
 *16:03* - A Telegram group is created to coordinate the Evmos Security Upgrade
+
 *17:26* - Validators begin [collecting availability](https://docs.google.com/spreadsheets/d/1cTcZaGpsXUEN-WUg3wOeSnZmZ24Zz72u0zgVt6QzHzw/edit?usp=sharing), to gauge feasibilty of a manual emergency upgrade at height 46,000.
 
 *20:17* - Upgrade plan restated, `v1.1.2` awaiting release due to testing
+
 *21:27* - Insufficient network awareness achieved, determine best course of action is to delay for 20 hours at height 56,300.
 
 *21:42 (March 5th) - 10:36 (March 6th)* - Core team consults with other Tendermint and Cosmos SDK core teams and experts regarding upgrade logic without governance upgrade to skip 5 day timeline for the emergency upgrade. Determined that safest way is to make a Cosmos SDK fork to call [`ScheduleUpgradeNoHeightCheck`](https://github.com/tharsis/evmos/pull/354/commits/e8b7fc6943cedecf404186d7449a2ddaa2cc179f) at upgrade height on `BeginBlocker` for both `v1.1.2` and `v2.0.0` in order to follow [Cosmovisor](https://docs.cosmos.network/master/run-node/cosmovisor.html) gov proposal upgrade path without having to reconstruct it entirely in Evmos codebase. Testing performed, upgrade works.
@@ -37,17 +43,29 @@
 ### March 6th, 2022
 
 *12:35* - Upgrade logic for **`v1.1.2`** [is completed](https://github.com/tharsis/evmos/pull/354)
+
 *12:44* - Upgrade logic merged, release being formed
+
 *12:52* - [**`v1.1.2`**](https://github.com/tharsis/evmos/tree/v1.1.2) upgrade announced as needed immediately
+
 *14:02* - Upgrade logic for **`v2.0.0`** [is completed](https://github.com/tharsis/evmos/pull/352/commits/08fce50bb725a23fbcb9d15cdb36684adc9b2e19) and is modified to support in-store migration logic within module instead of altering params outside of the module in the upgrade handler. After discussing with other Cosmos and Tendermint experts, it was made clear that migrations was a safer way to set new params and bump the consensus version of the module.
+
 *14:54* - Code is peer reviewed for v2 upgrade logic
+
 *14:58* - Code is merged for v2 upgrade logic
+
 *15:00 - 17:37* - Rebase and review security advisory patch prior to merge with v2 release
+
 *17:37* - Security advisory patch [merged](https://github.com/tharsis/evmos/commit/28870258d4ee9f1b8aeef5eba891681f89348f71) into [`release/v2.0.x`](https://github.com/tharsis/evmos/tree/release/v2.0.x) branch
+
 *17:42* - [**`v2.0.0`**](https://github.com/tharsis/evmos/releases/tag/v2.0.0) released
+
 *17:46* - [**`v2.0.0`**](https://github.com/tharsis/evmos/releases/tag/v2.0.0) upgrade announced, upgrade delayed to 58,700
+
 *21:01* - Evmos core team runs another test, realizes that upgrade failed on the test, devs immediately start investigating and prepare for `v2.0.1`
+
 *21:11* - As expected, people get a consensus failure for 58,700 to begin the upgrade process
+
 *21:12* - [**`v2.0.0`**](https://github.com/tharsis/evmos/releases/tag/v2.0.0) Upgrade error reports begin, same error the core team found in *21:01*:
 
 ```shell
@@ -57,11 +75,17 @@ panic: UnmarshalJSON cannot decode empty byte
 ```
 
 *21:21* - Team announces to Discord that developers are working on a patch release
+
 *21:27* - Core team and Cosmos developers understand that `GetParams` was breaking the migration and a [hotfix PR](https://github.com/tharsis/evmos/pull/363/commits/463992d65b2e999aa69f1df782315c167178e6b8) is merged
+
 *21:33* - [**`v2.0.1`**](https://github.com/tharsis/evmos/releases/tag/v2.0.1) released, fixing the error
+
 *21:35* - [**`v2.0.1`**](https://github.com/tharsis/evmos/releases/tag/v2.0.1) Upgrade begins
+
 *21:40* - 67% consensus seems to have reached for 58700, but 58701 gets stuck in consensus rounds...
-*21:41* - Reports of peer blocking / lost begin, possibly due to version disrepancies and people rebooting their nodes
+
+*21:41* - Reports of peer blocking / lost begin, possibly due to version discrepancies and people rebooting their nodes
+
 *21:47* - Reports of `v2.0.0` being accidentally deployed on some validators
 
 > no the problem is not git fetch, there is
@@ -73,10 +97,15 @@ not getting replaced by new one
 > I'm getting a hang when I run `curl -s localhost:26657/consensus_state`
 
 *21:50* - Participants point out that rank #1 validator is missing pre-commit/pre-votes and the network not moving forward because not enough people correctly upgraded and are participating in the rounds now for 58701. Suggested that rank #1 and others such as #7 and #8 upgrade.
+
 *21:50* - Further report of lost peers
+
 *21:50 - 22:31* - Several validators restart their nodes due to peer issues while they try updating peer settings or try to get peers
+
 *22:03* - Contact is made to rank #1 validator and other nodes to get online for 58701 and to participate in consensus rounds
+
 *22:31* - Recommendations on peer settings appear, and peer gathering efforts begin by Evmos team in #validators-active
+
 *22:44* - Report of resyncing
 
 > Mystery, I think we had a db corruption with `2.0.0`, and he didn't want to vote for the next block. Resync the blockchain and upgrade it worked
@@ -90,17 +119,29 @@ not getting replaced by new one
 > trying to resync the chain ... getting about 100 blocks / second (which felt like a bad idea.. but here we are)
 
 *23:00* - Recommendations to use snapshot to have nodes participate in the consensus process again, if they are not seeing prevotes
+
 *23:32* - Nodes reporting they are aggressively dropping in peers after starting the node, only 5/10 are online in prevoting stage
+
 *23:41* - Advised that people remove their seeds as their old `addrbook.json` files and the fact they may not be updated is likely to cause nodes to have broken peers
+
+*23:46* - Advised in step by step post that people should update peers, increase peering counts for inbound and outbound and delete their existing `addrbook.json`, and restart the node (note restarting the node likely meant the need to resync, didn't know it at the time)
+
+*23:41* - Advised that people remove their seeds as their old `addrbook.json` files and the fact they may not be updated is likely to cause nodes to have broken peers
+
 *23:46* - Advised in step by step post that people should update peers, increase peering counts for inbound and outbound and delete their existing `addrbook.json`, and restart the node (note restarting the node likely meant the need to resync, didn't know it at the time)
 
 ### March 7th, 2022
 
 *00:12* - New [peers list](https://hackmd.io/VTulVrhDQRmjhKRSu-Gv_A) to ensure upgraded peers and make more robust, due to concerns that GitHub `tharsis/mainnet` repository has an `addrbook.json` dump.
-00:39 - [Resync flow guide](https://hackmd.io/@y8_ti5SFRYSoiwFNMvJWtA/HJWeyCfWc) released.
+
+*00:39* - [Resync flow guide](https://hackmd.io/@y8_ti5SFRYSoiwFNMvJWtA/HJWeyCfWc) released.
+
 *00:30 - 01:40* - Lots of double signing uncertainty. Core team reassured that, as long as the `priv_validator_state.json` file isn't deleted, people are going to be OK and won't double sign.
+
 *01:17 - 01:50* - Coordinating with rank #1 validator to ensure they start their node as they were not in the latest consensus rounds. They were not willing to resume initially because of double signing fears, but after Evmos team member walked through steps to avoid double sign, they were online.
+
 *01:50* - Block 58,701 produced
+
 *01:52* - Reports of [byzantine behavior evidence](https://gist.github.com/joeabbey/4a15674aaab65945e0aa31ec3dbdbe83) (double sign) on 5 nodes:
 
 | **Voting Power** |
@@ -115,7 +156,9 @@ not getting replaced by new one
 After this happened, we had still not attained 67% of network voting power, and at the end of the struggle and seeing 5 double signs with ~17% of the voting power everyone seemed in agreement to halt the chain.
 
 *02:00* - Participants show signs of fatigue (have been for awhile)
+
 *02:25* - Agree amongst validators to turn off nodes because we'd have to wait again for the network to continue (it wasn't continuing after the double sign)
+
 *02:52* - Published decision to delay official response 24 - 48 hours
 
 ## Five Whys
@@ -209,6 +252,7 @@ After this happened, we had still not attained 67% of network voting power, and 
 
 **Why did it take so many rounds to try and upgrade?**
 
+* Because the upgrade release was last minute, and the upgrade failed, recovery was not immediate.
 * Voting power wasn't there, we were 66% at some rounds, for 10 rounds, meaning for hours and hours.
 
 **Why did people need to rely on snapshots and resync from `v1.1.2` to reapply the upgrade to `v2.0.1`?**
@@ -221,6 +265,7 @@ After this happened, we had still not attained 67% of network voting power, and 
 
 * [x] Create documentation for validators to deploy and run a Key Management Service (KMS) for Tendermint (`tmkms`) or multi-party-computation signing service for nodes (`horcrux`).
 * [ ] Clear instructions to **NEVER** `unsafe-reset-all` without saving a local copy of `priv_validator_state.json`, stating the importance of this file. A new command has been added to tendermint that does a [safe-reset](https://github.com/tendermint/tendermint/pull/8081).
+  * [ ] Make Validator Keys Migration Guide to a new machine, as this is not well documented either.
 * [ ] Manual Upgrade and Emergency Upgrade documents for Validators in case the automated upgrade fails to prevent FUD.
 * [ ] Ensure that seed/peer operators know to upgrade their full nodes during this process
   * [ ] Figure out how to have a peer list that is tested for working peers by CI or a Discord bot.
@@ -233,6 +278,7 @@ After this happened, we had still not attained 67% of network voting power, and 
 ### Engineering
 
 * [ ] Create How-to Guide for Cosmos SDK chain upgrades
+* [ ] Create an internal Security Policy
 * [ ] Create integration and E2E tests for upgrades, both for automated upgrades (Cosmovisor) and manual upgrades.
 * [x] Open an improvement [PR](https://github.com/tendermint/tendermint/pull/8081) on Tendermint Core to to ONLY reset the db instead of also wiping the `priv_validator_state.json` when running `unsafe-reset-all`.
 * [x] Post Mortem document of the incident and remediations
