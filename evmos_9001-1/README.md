@@ -17,7 +17,7 @@
 
 ## Genesis File
 
-Download the minified genesis file [`genesis.json`](https://archive.evmos.org/genesis/genesis.json)
+Download the minified genesis file [`genesis.json`](https://archive.evmos.org/evmos_9001-1/genesis.json)
 
 Verify the SHA256 checksum using:
 
