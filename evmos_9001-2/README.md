@@ -19,7 +19,7 @@ Follow the instructions on the official documentation to [carry out a manual upg
 
 > NOTE: for more info. Check the official Evmos [documentation](https://docs.evmos.org/validators/upgrades/upgrades.html) for the `evmos_9001-2` upgrade.
 
-## Genesis File
+### Genesis File
 
 1. Download the zipped genesis file [genesis.json.zip](./genesis.json.zip)
 
@@ -45,7 +45,7 @@ Follow the instructions on the official documentation to [carry out a manual upg
       echo "<expected_hash>  genesis.json" | sha256sum -c
     ```
 
-## Step-by-Step
+### Step-by-Step
 
 These are abbreviated version of the instructions linked above.
 
