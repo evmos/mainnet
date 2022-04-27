@@ -34,7 +34,7 @@ Follow the instructions on the official documentation to [carry out a manual upg
     ```bash
       sha256sum genesis.json
 
-      # 75dc34ff91afba87af0c68f3e96382909b8a979fd8df0897fc43b4da483bbeb1  genesis.json
+      # 4aa13da5eb4b9705ae8a7c3e09d1c36b92d08247dad2a6ed1844d031fcfe296c  genesis.json
     ```
 
     or alternatively, from the `config/` directory:
