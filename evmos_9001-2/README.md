@@ -8,8 +8,8 @@
 
 ## Schedule
 
-- **Genesis Timestamp (UTC)**: `2022-04-26T19:00:00Z`
-- **Airdrop Start Timestamp (UTC)**: `2022-04-26T22:00:00Z`
+- **Genesis Timestamp (UTC)**: `2022-04-27T16:00:00Z`
+- **Airdrop Start Timestamp (UTC)**: `2022-04-29T16:00:00Z`
 
 ## Instructions
 
