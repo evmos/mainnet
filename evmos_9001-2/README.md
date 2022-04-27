@@ -51,7 +51,7 @@ evmosd start
 
 ## Details
 
-- Network Chain ID: `evmosdryrun_9001-2`
+- Network Chain ID: `evmos_9001-2`
 - EIP155 Chain ID: `9001`
 - `evmosd` version: [`v3.0.0`](https://github.com/tharsis/evmos/releases)
 
