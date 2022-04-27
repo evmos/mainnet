@@ -26,8 +26,7 @@ Follow the instructions on the official documentation to [carry out a manual upg
 2. Extract it with command:
 
     ```bash
-      unzip dryrun_genesis.json.zip
-      mv dryrun_genesis.json genesis.json
+      unzip genesis.json.zip
     ```
 
 3. Verify the SHA256 checksum using:
