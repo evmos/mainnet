@@ -21,7 +21,7 @@ Follow the instructions on the official documentation to [carry out a manual upg
 
 ### Genesis File
 
-1. Download the zipped genesis file [genesis.json.zip](./genesis.json.zip)
+1. Download the zipped genesis file [genesis.json.zip](https://github.com/tharsis/mainnet/raw/main/evmos_9001-2/genesis.json.zip)
 
 2. Extract it with command:
 
